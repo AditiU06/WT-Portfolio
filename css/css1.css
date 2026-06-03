@@ -1,0 +1,29 @@
+<style>
+            h1,p{
+                color:rgb(127, 159, 255);
+                font-size:x-large;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            #a1{
+                background-color: blueviolet;
+                font-family: 'Times New Roman', Times, serif;
+                text-align: right;
+                color:aliceblue;
+            }
+            .a3{
+                background-color: rgb(48, 10, 84);
+                font-family: 'Courier New', Courier, monospace;
+                text-align: right;
+                color:aliceblue;
+            }
+            .a2{
+                background-color: rgb(84, 10, 10);
+                font-family: 'Courier New', Courier, monospace;
+                text-align: right;
+                color:aliceblue;
+            }
+            p[id="a4"]{
+                text-align: center;
+                background-color: black;
+            }
+</style>

@@ -1,0 +1,53 @@
+<html>
+    <body>
+        <h3>- - -Audio- - -</h3>
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+            Your browser doesn't support the audio element!
+        </audio> <br><hr>
+        <h3>- - -Video- - -</h3>
+        <video width="320" height="200" controls>
+            <source src="video.mp4" type="video/mp4">
+            Your browser doesn't support the video element!
+        </video> <br><hr>
+
+        <div style="background-color: rgb(249, 239, 241); font-family: Georgia, 'Times New Roman', Times, serif;">
+        <h3 style="text-align: center;">- - -Form- - -</h3>
+        <form action="server.php" method="post">
+            First Name: <input type="text"/>
+            Last Name: <input type="text"/>
+            <br><br>
+            Gender: <input type="radio" name="Gender"/><label for="Female">F</label>
+            <input type="radio" name="Gender"/><label for="Male">M</label>
+            <input type="radio" name="Gender"/><label for="Others">Others</label> 
+            <br><br>
+            Courses: <input type="checkbox" name="WT"/><label for="wt">Web Technology</label>
+            <input type="checkbox" name="SE"/><label for="se">Software Engineering</label>
+            <input type="checkbox" name="CN"/><label for="cn">Computer Networks</label>
+            <input type="checkbox" name="MC"/><label for="mc">Multi-Variable Calculus</label>
+            <br><br>
+            Semester: <select name="sem" size="3">
+                <option selected name="one" value="1"><label for="one">I</label></option>
+                <option name="two" value="2"><label for="two">II</label></option>
+                <option name="three" value="3"><label for="three">III</label></option>
+                <option  name="four" value="4"><label for="four">IV</label></option>
+                <option name="five" value="5"><label for="five">V</label></option>
+                <option name="six" value="6"><label for="six">VI</label></option>
+                <option name="seven" value="7"><label for="seven">VII</label></option>
+                <option name="eight" value="8"><label for="eight">VIII</label></option>
+            </select>
+            <br><br>
+            Password: <input type="password"/>
+            <br><br>
+            Feedback: <textarea name="comments"> </textarea>
+            <br><br>
+            <fieldset height="250px" width="500px">
+                <legend>KLETECH</legend>
+                <p>Welcome!!!</p>
+            </fieldset>
+            <br><br>
+            <input type="submit" value="SUBMIT"/>
+        </form>
+        </div><hr>
+    </body>
+</html>

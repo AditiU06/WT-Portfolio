@@ -1,18 +1,16 @@
-"use strict";
-/*
 console.log("Hello");
 
 //Type Inference
-let x = 1500;
+let x10 = 1500;
 let msg = "Haloes";
 
 //Annotation
-let name: string = "Bob";
-let age: number = 15;
+let name2: string = "Bob";
+let age1: number = 15;
 
 
-let age: number = 30;
-console.log(age);
+let age2: number = 30;
+console.log(age2);
 
 let nam: string = "Mark";
 console.log(nam);
@@ -55,11 +53,11 @@ interface User {
     name: string;
     age: number;
 }
-let user: User = {
-    name: "Kevin",
+let user1: User = {
+    name: "Kevin", 
     age: 29
 };
-console.log(user);
+console.log(user1);
 
 //Function
 function add(a: number, b: number): number {
@@ -118,14 +116,14 @@ console.log(a1 == b1);
 console.log(a1 != b1);
 
 //Bitwse Operators
-let p: number = 5; //0101
+let p3: number = 5; //0101
 let q: number = 2; //0010
-console.log(p & q);
-console.log(p | q);
-console.log(p ^ q);
-console.log(~p);
-console.log(p << 1); //left shift
-console.log(p >> 1); //right shift
+console.log(p3 & q);
+console.log(p3 | q);
+console.log(p3 ^ q);
+console.log(~p3);
+console.log(p3 << 1); //left shift
+console.log(p3 >> 1); //right shift
 
 //Assignment Operator
 let s: number = 100;
@@ -152,11 +150,24 @@ console.log(fullName);
 //Type Operator
 let value: any = "Yooo";
 console.log(typeof value);
-*/
+
 //Typed Objects
-let student = {
+let student: {title: string; price: number, isSold: boolean} = {
     title: "Last Of Us",
     price: 500,
     isSold: true
 };
 console.log(student);
+
+//Error Handling
+function divide(a: number, b:number): number {
+    if(b==a)
+        throw new Error("Division by 0");
+    return a/b;
+}
+try {
+    const result = divide(10, 0);
+    console.log(result);
+} catch(error) {
+    console.error('An error occured:', error.message);
+}

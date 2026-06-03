@@ -11,9 +11,9 @@ http.createServer(function(req, res) {
     a = parseInt(a);
     b = parseInt(b);
 
-    res.write("Sum: " +dt.add(a, b) + '<br/>');
-    res.write("Difference: " +dt.sub(a, b) + '<br/>');
-    res.write("Product: " +dt.mul(a, b) + '<br/>');
-    res.write("Division: " +dt.div(a, b) + '<br/>');
+    res.write("Sum: " +dt.add(a, b) + '<br>');
+    res.write("Difference: " +dt.sub(a, b) + '<br>');
+    res.write("Product: " +dt.mul(a, b) + '<br>');
+    res.write("Division: " +dt.div(a, b) + '<br>');
     res.end();
 }).listen(8081);

@@ -1,0 +1,4 @@
+Hooks
+It allows us to hook into React features such as state and lifecycle methods. You must import Hooks from react.
+Here we are using the useState Hook to keep trach of the application state.
+State generally refer to application data or properties that need to be tracked.

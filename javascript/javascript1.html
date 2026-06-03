@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title> Hello World Example </title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            <!--
+                document.write("<h1 style='color:red; text-align:center;'><i>Hello World!!!</i></h1>");
+             //-->
+             var name="Mark";
+             var age=27;
+             var x=19.9, y=10.3;
+             document.write("<h3 style='font-family: Courier New, Courier, monospace;'>Age of "+name+" is "+age+".</h3>");
+             document.write("<p>Round off: "+Math.round(x)+"</p>");
+             document.write("<p>Floor func: "+Math.floor(x)+"</p>");
+             document.write("<p>Ceil func: "+Math.ceil(x)+"</p>");
+             document.write("<p>Power of: "+Math.pow(x,0)+"</p>");
+             document.write("<p>Max: "+Math.max(x,y,1000)+"</p>");
+             document.write("<p>Min: "+Math.min(x,y,-8.5)+"</p>");
+             document.write("<p>Square root: "+Math.sqrt(25)+"</p>");
+
+             let result=Math.min(Math.round(10.5),Math.floor(20.8),Math.sqrt(2500));
+             document.write("Result: "+result);
+
+             let floatNum = parseInt("101.9");
+             document.write("<p>"+floatNum+"</p>");
+
+             let r = "5"*2;
+             document.write("<p>"+r+"</p>");
+             let s = "5"+2;
+             document.write("<p>"+s+"</p>");
+
+             let q = 5=="5.0";
+             document.write("<p>"+q+"</p>");
+             let t = 5==="5";
+             document.write("<p>"+t+"</p>");
+
+             var sum=0;
+             for(var i=0; i<100; i++)
+             {
+                sum=sum+i;
+             }
+             document.write("<p>Sum = "+sum+"</p>");
+
+             var s1="Aditi";
+             var s2="";
+             for(var i=0; i<s1.length; i++){
+                s2+=s1.charAt(i)+s1.charAt(i);
+             }
+             document.write("<p>String = "+s2+"</p>");
+
+             var a=[];
+             a[0] = "Aa ";
+             a[1] = "Bb ";
+             a[3] = "C ";
+             a[4] = "D ";
+             document.write(a+"<br> Length is "+a.length);
+             var duck =["P ", "Q ", "R ", "S "];
+             document.write("<br><br>"+duck);
+
+            var z="Web Tech";
+            let  f=z.substring(0, z.indexOf(" "));
+            document.write("<p>"+f+"</p>");
+
+            var k=z.split(" ");
+            document.write("<p>"+k+"</p>");
+            k.reverse();
+            document.write("<p>"+k+"</p>");
+            z=k.join("!");
+            document.write("<p>"+z+"</p>");
+
+        </script>
+    </body>
+</html>
