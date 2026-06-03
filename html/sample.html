@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Details</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: lavender; font-family: Arial;">
+
+<div class="container text-center mt-5">
+
+    <h2 id="heading"></h2>
+
+    <!-- Bootstrap Badge -->
+    <p>
+        Faculty Information 
+        <span class="badge bg-primary">Library System</span>
+    </p>
+
+    <form style="display:inline-block; text-align:left;">
+
+        First Name:<br>
+        <input type="text" class="form-control mb-3">
+
+        Last Name:<br>
+        <input type="text" class="form-control mb-3">
+
+        Age:<br>
+        <input class="form-check-input" type="radio" name="age"> Below 30
+        <input class="form-check-input" type="radio" name="age"> 30-50
+        <input class="form-check-input" type="radio" name="age"> Above 50
+        <br><br>
+
+        Designation:<br>
+        <input class="form-check-input" type="radio" name="des"> Librarian
+        <input class="form-check-input" type="radio" name="des"> Assistant
+        <input class="form-check-input" type="radio" name="des"> Chief Librarian
+        <br><br>
+
+        Subjects:<br>
+        <input class="form-check-input" type="checkbox"> Web Technology
+        <input class="form-check-input" type="checkbox"> DBMS
+        <input class="form-check-input" type="checkbox"> OS
+        <br><br>
+
+        <!-- Bootstrap Buttons -->
+        <button class="btn btn-success">Submit</button>
+        <button class="btn btn-secondary">Reset</button>
+
+    </form>
+
+    <br><br>
+    <a href="index.html" class="btn btn-outline-dark">⬅ Back to Home</a>
+
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+
+    document.getElementById("heading").innerText =
+        "Faculty Details - " + name;
+</script>
+
+</body>
+</html>

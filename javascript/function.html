@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display details</title>
+    <script type="text/javascript">
+        function display(){ 
+            var str=document.myForm.first.value;
+            alert("The value stored is: "+str);
+        }
+    </script>
+</head>
+<body>
+    <h2>Form</h2>
+    <form name="myForm">
+        Name: <input type="text" name="first"><br><br>
+        <input type="button" onclick="display()" value="Display">
+    </form>
+</body>
+</html>

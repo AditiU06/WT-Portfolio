@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+    </head>
+    <body>
+        <form onsubmit="return login()">
+            Username: <input type="text" id="user"><br><br>
+            Password:  <input type="password" id="pass"><br><br>
+             <input type="submit" value="Login"><br><br>
+        </form>
+        <script>
+            function login(){
+                let u= document.getElementById("user").value;
+                let p=document.getElementById("pass").value;
+                if(u=="admin" && p=="1234")
+            {
+                window.location.href="home.html";
+            } else {
+                alert("Invalid Login");
+            }
+            return false;
+            }
+        </script>
+    </body>
+</html>

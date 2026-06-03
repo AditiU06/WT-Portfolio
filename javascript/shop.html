@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.item {border:1px solid black; padding:10px; margin:10px;}
+</style>
+</head>
+
+<body>
+
+<h2>Clothing Store</h2>
+
+Filter by Price:
+<input type="number" id="price">
+<button onclick="filter()">Filter</button>
+
+<div class="item" data-price="500">
+Men Shirt - ₹500
+<button onclick="add(500)">Add</button>
+</div>
+
+<div class="item" data-price="800">
+Women Dress - ₹800
+<button onclick="add(800)">Add</button>
+</div>
+
+<div class="item" data-price="300">
+Kids Wear - ₹300
+<button onclick="add(300)">Add</button>
+</div>
+
+<h3>Total: ₹<span id="total">0</span></h3>
+
+<script>
+let total = 0;
+
+function add(price){
+    total += price;
+    document.getElementById("total").innerText = total;
+}
+
+function filter(){
+    let p = document.getElementById("price").value;
+    let items = document.getElementsByClassName("item");
+
+    for(let i=0;i<items.length;i++){
+        let itemPrice = items[i].getAttribute("data-price");
+        if(itemPrice <= p || p==""){
+            items[i].style.display="block";
+        } else {
+            items[i].style.display="none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

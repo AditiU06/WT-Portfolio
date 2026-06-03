@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM getElementByName</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        h1{
+            color: green;
+        }
+    </style>
+    <script>
+        //number of elements at particular name
+        function g1(){ 
+            //taking list of elements under cs
+            var x=document.getElementsByName("CS");
+
+            //printing no of elements inside alert tag
+            alert("Total num of elements with name cs: "+x.length);
+            alert(x[0].innerHTML);
+        }
+    </script>
+</head>
+<body>
+    <h1>Web Technology</h1>
+    <h2>School of CSE</h2>
+    <h4 name="cS">SOCSE</h4> <!--case sensitive-->
+    <h4 name="Cs">KLE</h4>
+    <h4 name="CS">Technology</h4>
+    <h4 name="Web">Web</h4>
+    <h4 name="web">lab</h4>
+    <input type="button" onclick="g1()" value="Click here"/>
+</body>
+</html>
