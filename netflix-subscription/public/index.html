@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Netflix Subscription Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- LOGIN OVERLAY -->
+<div id="loginOverlay" class="overlay">
+  <div class="login-card">
+    <div class="login-logo">NETFLIX</div>
+    <h2 class="login-title">Sign In</h2>
+    <p class="login-sub">Subscription Management System</p>
+    <div id="loginAlert" class="alert hidden"></div>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" id="loginUsername" placeholder="Enter username" />
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="loginPassword" placeholder="Enter password" />
+    </div>
+    <button class="btn btn-primary" style="width:100%;" onclick="doLogin()">Sign In</button>
+    <div class="login-hint">
+      <strong>Demo Credentials:</strong><br />
+      admin / admin123 &nbsp;|&nbsp; sarah / sarah123
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="hidden">
+  <nav class="navbar">
+    <div class="nav-brand">NETFLIX</div>
+    <div class="nav-links">
+      <button class="nav-btn active" data-tab="home" onclick="showTab('home')">Home</button>
+      <button class="nav-btn" data-tab="plans" onclick="showTab('plans')">Plans</button>
+      <button class="nav-btn" data-tab="subscribe" onclick="showTab('subscribe')">Subscribe</button>
+      <button class="nav-btn" data-tab="mySubscriptions" onclick="showTab('mySubscriptions')">My Subscriptions</button>
+      <button class="nav-btn" data-tab="allSubscriptions" onclick="showTab('allSubscriptions')">All Subscriptions</button>
+    </div>
+    <div class="nav-user">
+      <span id="navUserName" class="user-badge"></span>
+      <button class="btn-outline-sm" onclick="doLogout()">Logout</button>
+    </div>
+  </nav>
+  <div id="globalAlert" class="global-alert hidden"></div>
+
+  <!-- HOME TAB -->
+  <section id="tab-home" class="tab-section active">
+    <div class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Unlimited Entertainment</h1>
+        <p class="hero-sub">Manage your Netflix subscriptions in one powerful dashboard.</p>
+        <button class="btn btn-primary" onclick="showTab('subscribe')">Get Started</button>
+      </div>
+    </div>
+    <div class="stats-row" id="statsRow">
+      <div class="stat-card"><div class="stat-num" id="statActive">—</div><div class="stat-label">Active Subscriptions</div></div>
+      <div class="stat-card"><div class="stat-num" id="statRevenue">—</div><div class="stat-label">Monthly Revenue</div></div>
+      <div class="stat-card"><div class="stat-num" id="statUsers">—</div><div class="stat-label">Total Users</div></div>
+      <div class="stat-card"><div class="stat-num" id="statPlans">—</div><div class="stat-label">Available Plans</div></div>
+    </div>
+    <div class="section-header" style="padding:0 2rem;"><h2>Our Subscription Plans</h2></div>
+    <div class="pricing-grid" id="homePricingGrid"></div>
+  </section>
+
+  <!-- PLANS TAB -->
+  <section id="tab-plans" class="tab-section">
+    <div class="page-header"><h2>Subscription Plans</h2><button class="btn btn-primary" onclick="openAddPlanModal()">+ Add Plan</button></div>
+    <div class="search-bar"><input type="text" id="planSearch" placeholder="Search by name, quality, price..." oninput="searchPlans()" /></div>
+    <div class="table-wrapper"><table class="data-table"><thead><tr><th>#</th><th>Plan Name</th><th>Price</th><th>Quality</th><th>Screens</th><th>Description</th><th>Actions</th></tr></thead><tbody id="plansTableBody"></tbody></table></div>
+  </section>
+
+  <!-- SUBSCRIBE TAB -->
+  <section id="tab-subscribe" class="tab-section">
+    <div class="page-header"><h2>Subscribe to a Plan</h2></div>
+    <div class="form-card"><div id="subscribeAlert" class="alert hidden"></div><div class="form-grid"><div class="form-group"><label>Select Plan</label><select id="subPlanId"><option value="">-- Choose a Plan --</option></select></div><div class="form-group"><label>Start Date</label><input type="date" id="subStartDate" /></div><div class="form-group"><label>End Date</label><input type="date" id="subEndDate" /></div></div><button class="btn btn-primary" onclick="doSubscribe()">Confirm Subscription</button></div>
+  </section>
+
+  <!-- MY SUBSCRIPTIONS -->
+  <section id="tab-mySubscriptions" class="tab-section">
+    <div class="page-header"><h2>My Subscriptions</h2></div>
+    <div class="table-wrapper"><table class="data-table"><thead><tr><th>#</th><th>Plan</th><th>Price</th><th>Quality</th><th>Screens</th><th>Start Date</th><th>End Date</th><th>Status</th><th>Actions</th></tr></thead><tbody id="mySubsTableBody"></tbody></table></div>
+  </section>
+
+  <!-- ALL SUBSCRIPTIONS -->
+  <section id="tab-allSubscriptions" class="tab-section">
+    <div class="page-header"><h2>All Subscriptions</h2></div>
+    <div class="table-wrapper"><table class="data-table"><thead><tr><th>#</th><th>User</th><th>Email</th><th>Plan</th><th>Price</th><th>Quality</th><th>Start Date</th><th>End Date</th><th>Status</th></tr></thead><tbody id="allSubsTableBody"></tbody></table></div>
+  </section>
+</div>
+
+<!-- MODALS -->
+<div id="planModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-header"><h3 id="planModalTitle">Add New Plan</h3><button class="modal-close" onclick="closeModal('planModal')">×</button></div><div id="planModalAlert" class="alert hidden"></div><div class="form-grid"><div class="form-group"><label>Plan Name</label><input type="text" id="mPlanName" placeholder="e.g. Premium" /></div><div class="form-group"><label>Monthly Price (₹)</label><input type="number" id="mPlanPrice" placeholder="e.g. 649" /></div><div class="form-group"><label>Video Quality</label><select id="mPlanQuality"><option>SD</option><option>HD</option><option>FHD</option><option>4K</option></select></div><div class="form-group"><label>Screens Allowed</label><input type="number" id="mPlanScreens" placeholder="e.g. 4" min="1" max="10" /></div></div><div class="form-group"><label>Description</label><textarea id="mPlanDesc" rows="3" placeholder="Describe the plan..."></textarea></div><input type="hidden" id="mPlanId" /><div class="modal-footer"><button class="btn-outline" onclick="closeModal('planModal')">Cancel</button><button class="btn-primary" onclick="savePlan()">Save Plan</button></div></div></div>
+
+<div id="subEditModal" class="modal-backdrop hidden"><div class="modal"><div class="modal-header"><h3>Edit Subscription</h3><button class="modal-close" onclick="closeModal('subEditModal')">×</button></div><div id="subEditAlert" class="alert hidden"></div><div class="form-group"><label>Plan</label><select id="editSubPlanId"></select></div><div class="form-group"><label>Status</label><select id="editSubStatus"><option>Active</option><option>Expired</option><option>Cancelled</option></select></div><div class="form-group"><label>Start Date</label><input type="date" id="editSubStart" /></div><div class="form-group"><label>End Date</label><input type="date" id="editSubEnd" /></div><input type="hidden" id="editSubId" /><div class="modal-footer"><button class="btn-outline" onclick="closeModal('subEditModal')">Cancel</button><button class="btn-primary" onclick="saveSubEdit()">Update</button></div></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
