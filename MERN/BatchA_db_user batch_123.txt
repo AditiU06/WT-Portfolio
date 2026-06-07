@@ -1,3 +1,0 @@
-BatchA_db_user: batch_123
-
-mongodb://BatchA_db_user:batch_123@ac-4mvided-shard-00-00.adslckq.mongodb.net:27017,ac-4mvided-shard-00-01.adslckq.mongodb.net:27017,ac-4mvided-shard-00-02.adslckq.mongodb.net:27017/?ssl=true&replicaSet=atlas-136x6d-shard-0&authSource=admin&appName=Cluster0
